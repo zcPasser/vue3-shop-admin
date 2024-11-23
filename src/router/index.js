@@ -31,8 +31,15 @@ import NotFound from '~/pages/404.vue'
 const routes = [
     {
         path: "/",
-        // name: "admin",
-        component: Index,
+        name: "admin",
+        component: Admin,
+        children: [{
+            path: '/',
+            component: Index,
+            meta: {
+                title: "后台首页"
+            }
+        }]
     },
     {
         path: "/login",
