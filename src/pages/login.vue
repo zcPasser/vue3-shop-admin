@@ -44,11 +44,11 @@
 
 <script setup>
 import { ref, reactive, onMounted, onBeforeUnmount } from 'vue'
-// import { toast } from '~/composables/util'
 import { useRouter } from 'vue-router'
-// import { useStore } from 'vuex'
+import { useStore } from 'vuex'
+import { toast } from '~/composables/util'
 
-// const store = useStore()
+const store = useStore()
 const router = useRouter()
 
 // // do not use same name with ref
@@ -77,21 +77,21 @@ const rules = {
 const formRef = ref(null)
 const loading = ref(false)
 const onSubmit = () => {
-    console.log('submit');
+    // console.log('submit');
 
-    // formRef.value.validate((valid)=>{
-    //     if(!valid){
-    //         return false
-    //     }
-    //     loading.value = true
+    formRef.value.validate((valid) => {
+        if (!valid) {
+            return false
+        }
+        loading.value = true
 
-    //     store.dispatch("login",form).then(res=>{
-    //         toast("登录成功")
-    //         router.push("/")
-    //     }).finally(()=>{
-    //         loading.value = false
-    //     })
-    // })
+        store.dispatch("login", form).then(res => {
+            toast("登录成功")
+            router.push("/")
+        }).finally(() => {
+            loading.value = false
+        })
+    })
 }
 
 // 监听回车事件
