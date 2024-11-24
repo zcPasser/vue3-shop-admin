@@ -51,7 +51,7 @@ import { toast } from '~/composables/util'
 const store = useStore()
 const router = useRouter()
 
-// // do not use same name with ref
+// do not use same name with ref
 const form = reactive({
     username: "",
     password: ""

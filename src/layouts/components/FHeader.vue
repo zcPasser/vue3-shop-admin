@@ -1,6 +1,5 @@
 <template>
-    <div>头部</div>
-    <!-- <div class="f-header">
+    <div class="f-header">
         <span class="logo">
             <el-icon class="mr-1">
                 <eleme-filled />
@@ -8,8 +7,8 @@
             帝莎编程
         </span>
         <el-icon class="icon-btn" @click="$store.commit('handleAsideWidth')">
-            <fold v-if="$store.state.asideWidth == '250px'"/>
-            <Expand v-else/>
+            <fold v-if="$store.state.asideWidth == '250px'" />
+            <Expand v-else />
         </el-icon>
         <el-tooltip effect="dark" content="刷新" placement="bottom">
             <el-icon class="icon-btn" @click="handleRefresh">
@@ -39,62 +38,62 @@
                         <el-dropdown-item command="logout">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
-</el-dropdown>
-</div>
-</div>
+            </el-dropdown>
+        </div>
+    </div>
 
-<form-drawer ref="formDrawerRef" title="修改密码" destroyOnClose @submit="onSubmit">
-    <el-form ref="formRef" :rules="rules" :model="form" label-width="80px" size="small">
-        <el-form-item prop="oldpassword" label="旧密码">
-            <el-input v-model="form.oldpassword" placeholder="请输入旧密码"></el-input>
-        </el-form-item>
-        <el-form-item prop="password" label="新密码">
-            <el-input type="password" v-model="form.password" placeholder="请输入密码" show-password></el-input>
-        </el-form-item>
-        <el-form-item prop="repassword" label="确认密码">
-            <el-input type="password" v-model="form.repassword" placeholder="请输入确认密码" show-password></el-input>
-        </el-form-item>
-    </el-form>
-</form-drawer> -->
+    <form-drawer ref="formDrawerRef" title="修改密码" destroyOnClose @submit="onSubmit">
+        <el-form ref="formRef" :rules="rules" :model="form" label-width="80px" size="small">
+            <el-form-item prop="oldpassword" label="旧密码">
+                <el-input v-model="form.oldpassword" placeholder="请输入旧密码"></el-input>
+            </el-form-item>
+            <el-form-item prop="password" label="新密码">
+                <el-input type="password" v-model="form.password" placeholder="请输入密码" show-password></el-input>
+            </el-form-item>
+            <el-form-item prop="repassword" label="确认密码">
+                <el-input type="password" v-model="form.repassword" placeholder="请输入确认密码" show-password></el-input>
+            </el-form-item>
+        </el-form>
+    </form-drawer>
 
 </template>
 <script setup>
-// import FormDrawer from '~/components/FormDrawer.vue'
-// import { useFullscreen } from '@vueuse/core'
-// import { useRepassword,useLogout } from "~/composables/useManager"
-// const {
-//     // 是否全屏状态
-//     isFullscreen,
-//     // 切换全屏
-//     toggle
-// } = useFullscreen()
+import FormDrawer from '~/components/FormDrawer.vue'
+import { useFullscreen } from '@vueuse/core'
+import { useRepassword, useLogout } from "~/composables/useManager"
+const {
+    // 是否全屏状态
+    isFullscreen,
+    // 切换全屏
+    toggle
+} = useFullscreen()
 
-// const {
-//     formDrawerRef,
-//     form,
-//     rules,
-//     formRef,
-//     onSubmit,
-//     openRePasswordForm
-// } = useRepassword()
+const {
+    formDrawerRef,
+    form,
+    rules,
+    formRef,
+    onSubmit,
+    openRePasswordForm
+} = useRepassword()
 
-// const {
-//     handleLogout
-// } = useLogout()
+const {
+    handleLogout
+} = useLogout()
 
-// const handleCommand = (c) => {
-//     switch (c) {
-//         case "logout":
-//             handleLogout()
-//             break;
-//         case "rePassword":
-//             openRePasswordForm()
-//             break;
-//     }
-// }
+const handleCommand = (c) => {
+    switch (c) {
+        case "logout":
+            handleLogout()
+            break;
+        case "rePassword":
+            openRePasswordForm()
+            break;
+    }
+}
 
-// // 刷新
-// const handleRefresh = () => location.reload()
+// 刷新
+const handleRefresh = () => location.reload()
 
 </script>
 <style>
