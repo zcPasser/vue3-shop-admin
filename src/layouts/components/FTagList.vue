@@ -1,10 +1,10 @@
 <template>
-    <div>标签栏</div>
-    <!-- <div class="f-tag-list" :style="{ left:$store.state.asideWidth }">
+    <div class="f-tag-list" :style="{ left: $store.state.asideWidth }">
 
         <el-tabs v-model="activeTab" type="card" class="flex-1" @tab-remove="removeTab" style="min-width:100px;"
-        @tab-change="changeTab">
-            <el-tab-pane :closable="item.path != '/'" v-for="item in tabList" :key="item.path" :label="item.title" :name="item.path"></el-tab-pane>
+            @tab-change="changeTab">
+            <el-tab-pane :closable="item.path != '/'" v-for="item in tabList" :key="item.path" :label="item.title"
+                :name="item.path"></el-tab-pane>
         </el-tabs>
 
         <span class="tag-btn">
@@ -20,20 +20,20 @@
                         <el-dropdown-item command="clearAll">全部关闭</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
-</el-dropdown>
-</span>
-</div>
-<div style="height:44px;"></div> -->
+            </el-dropdown>
+        </span>
+    </div>
+    <div style="height:44px;"></div>
 </template>
 <script setup>
-// import { useTabList } from "~/composables/useTabList.js"
-// const {
-//     activeTab,
-//     tabList,
-//     changeTab,
-//     removeTab,
-//     handleClose
-// } = useTabList()
+import { useTabList } from "~/composables/useTabList.js"
+const {
+    activeTab,
+    tabList,
+    changeTab,
+    removeTab,
+    handleClose
+} = useTabList()
 </script>
 <style scoped>
 .f-tag-list {

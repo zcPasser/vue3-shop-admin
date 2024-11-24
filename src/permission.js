@@ -1,5 +1,5 @@
-// import { router,addRoutes } from "~/router"
-import { router } from "~/router"
+import { router, addRoutes } from "~/router"
+// import { router } from "~/router"
 import { getToken } from "~/composables/auth"
 import {
     toast,
@@ -34,7 +34,7 @@ router.beforeEach(async (to, from, next) => {
         let { menus } = await store.dispatch("getinfo")
         hasGetInfo = true
         // 动态添加路由
-        // hasNewRoutes = addRoutes(menus)
+        hasNewRoutes = addRoutes(menus)
 
     }
 
